@@ -10,7 +10,7 @@ const state = {
     over:2
 }
 
-// Canvas
+// init Canvas
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 960;
@@ -19,16 +19,21 @@ ctx.font = "20pt Calibri,Geneva,Arial";
 ctx.strokeStyle = "rgb(0,0,0)";
 ctx.fillStyle = "rgb(0,20,180)";
 
-// INIT
+// init keyboard control
+document.addEventListener("keydown", keyDown, false);
+document.addEventListener("keyup", keyUp, false);
+
+// init Layers
 let layers = [];
 layers.push(new Background(Backgrounds[2 * backgroundChoice],0.05));
 layers.push(new Background(Backgrounds[(2 * backgroundChoice) + 1],0.3));
 
+// init Players
 player = new Player(playerChoice);
 
-// keyboard control
-document.addEventListener("keydown", keyDown, false);
-document.addEventListener("keyup", keyUp, false);
+// init Enemies
+let enemies = [];
+enemies.push(enemy = new Enemy());
 
 
 // UPDATE
@@ -41,8 +46,8 @@ function update(){
     // GUI Update
 
     // Player and Ennemies Update
+    enemy.update();
     player.update();
-
 }
 
 // DRAW
@@ -59,7 +64,9 @@ function draw(){
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
+    enemy.draw();
     player.draw();
+
 }
 
 // Game loop

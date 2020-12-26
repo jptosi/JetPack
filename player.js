@@ -24,12 +24,11 @@ class Player {
             this.isJetOn = false;
             this.y += this.gravity;
         }
-        console.log(this.y + " : " + this.isOnFloor);
 
         // calculate image frame - animation player
         if(frames % 10 === 0){
             this.frameImg += spriteSize;
-            if(this.frameImg > spriteSize + 3){
+            if(this.frameImg > spriteSize * 3){
                 this.frameImg = 0;
             }
         }
