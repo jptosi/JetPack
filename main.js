@@ -31,11 +31,6 @@ layers.push(new Background(Backgrounds[(2 * backgroundChoice) + 1],0.3));
 // init Players
 player = new Player(playerChoice);
 
-// init Enemies
-let enemies = [];
-enemies.push(enemy = new Enemy());
-
-
 // UPDATE
 function update(){
     // background Update
@@ -45,8 +40,11 @@ function update(){
 
     // GUI Update
 
-    // Player and Ennemies Update
-    enemy.update();
+    // Player and Ennemies Updatezzz
+    enemies.forEach(enemy => {
+        enemy.update();
+        }
+    )
     player.update();
 }
 
@@ -64,7 +62,10 @@ function draw(){
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
-    enemy.draw();
+    enemies.forEach(enemy => {
+        enemy.draw();
+        }
+    )
     player.draw();
 
 }
@@ -73,6 +74,7 @@ function draw(){
 function loop(){
     draw();
     update();
+    enemieSpaw();
     frames++;
     requestAnimationFrame(loop);
 }
