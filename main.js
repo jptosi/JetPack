@@ -61,7 +61,7 @@ function draw(){
     });
 
     // GUI Draw
-    //ctx.strokeText("Exemple de texte", 100, 20);
+    ctx.strokeText('Press "UP" key to active jetpack', 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
