@@ -38,8 +38,8 @@ class Enemy {
 
 function enemieSpaw(){
     if(frames % 150 === 0){
-    enemies.push(enemy = new Enemy(1,spriteHeight * 1.5, spriteHeight * 4));
+    enemies.push(enemy = new Enemy(4,spriteHeight * 1.5, spriteHeight * 4));
     enemies.push(enemy = new Enemy(2,spriteHeight * 4, spriteHeight * 6.5));
-    enemies.push(enemy = new Enemy(3,spriteHeight * 6.5 , spriteHeight * 9));
+    enemies.push(enemy = new Enemy(0,spriteHeight * 6.5 , spriteHeight * 9));
     }
 }
