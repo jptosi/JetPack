@@ -6,18 +6,22 @@ const spriteHeight = 64;
 let enemies = [];
 
 class Enemy {
-    constructor(enemyFrame = 0, corridor ){
+    constructor(enemyFrame = 0, minY, maxY ){
         this.enemyFrame = enemyFrame;
         this.x = canvas.width;
-        this.y = getRandomInt(spriteHeight, spriteHeight * 4, 0) * corridor ;
-        console.log(corridor + " : " + this.y);
+        this.y = getRandomInt(minY, maxY, 0);
+        console.log(this.y);
         this.speedx = Math.random() + 1;
         this.frameImg = 0;
+        this.onScreen = true;
     }
 
     update(){
         this.x -= this.speedx;
-
+        // check if enemies are out of screen
+        if (this.x < -spriteWidth){
+            this.onScreen = false;
+        }
         // calculate image frame - animation enemy
         if(frames % 10 === 0){
             this.frameImg += spriteWidth;
@@ -34,8 +38,8 @@ class Enemy {
 
 function enemieSpaw(){
     if(frames % 300 === 0){
-    enemies.push(enemy = new Enemy(1,1));
-    enemies.push(enemy = new Enemy(2,2));
-    enemies.push(enemy = new Enemy(3,3));
+    enemies.push(enemy = new Enemy(1,spriteHeight * 1.5, spriteHeight * 3));
+    enemies.push(enemy = new Enemy(2,spriteHeight * 4.5, spriteHeight * 6));
+    enemies.push(enemy = new Enemy(3,spriteHeight * 7.5, spriteHeight * 9));
     }
 }

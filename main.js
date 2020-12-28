@@ -41,11 +41,10 @@ function update(){
     // GUI Update
 
     // Player and Ennemies Update
-
     for (i = enemies.length - 1; i >= 0 ; i--){
-        console.log(i);
         enemies[i].update();
-        if (enemies[i].x < - spriteWidth){
+        // remove enemies out of screen
+        if (enemies[i].onScreen === false){
             enemies.splice(i,1);
         }
     }
