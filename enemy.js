@@ -9,7 +9,7 @@ class Enemy {
     constructor(enemyFrame = 0, corridor ){
         this.enemyFrame = enemyFrame;
         this.x = canvas.width;
-        this.y = (Math.floor(Math.random() * 2 ) + corridor) * spriteHeight ;
+        this.y = getRandomInt(spriteHeight, spriteHeight * 4, 0) * corridor ;
         console.log(corridor + " : " + this.y);
         this.speedx = Math.random() + 1;
         this.frameImg = 0;
@@ -17,6 +17,7 @@ class Enemy {
 
     update(){
         this.x -= this.speedx;
+
         // calculate image frame - animation enemy
         if(frames % 10 === 0){
             this.frameImg += spriteWidth;
@@ -27,7 +28,6 @@ class Enemy {
     }
 
     draw(){
-        // en
         ctx.drawImage(enemyImg, this.frameImg, this.enemyFrame * spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
     }
 }
@@ -35,7 +35,7 @@ class Enemy {
 function enemieSpaw(){
     if(frames % 300 === 0){
     enemies.push(enemy = new Enemy(1,1));
-    enemies.push(enemy = new Enemy(2,4));
-    enemies.push(enemy = new Enemy(3,7));
+    enemies.push(enemy = new Enemy(2,2));
+    enemies.push(enemy = new Enemy(3,3));
     }
 }

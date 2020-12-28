@@ -48,3 +48,16 @@ class Background {
     }
 
 }
+
+/** random int
+    min : include
+    max : exclude
+    operator : 0 max exclude - 1  max include
+**/
+
+function getRandomInt(min, max, operator = 0) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + operator)) + min;
+}
+

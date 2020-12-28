@@ -15,7 +15,7 @@ class Player {
     }
 
     update(){
-        if(keyBoost === true && this.y > 0 ){
+        if(keyBoost === true && this.y > 64 ){
             this.isJetOn = true;
             this.y -= this.gravity;
         } else if (this.y === canvas.height - spriteSize){

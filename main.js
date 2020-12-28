@@ -40,11 +40,18 @@ function update(){
 
     // GUI Update
 
-    // Player and Ennemies Updatezzz
-    enemies.forEach(enemy => {
-        enemy.update();
+    // Player and Ennemies Update
+    // enemies.forEach(enemy => {
+    //     enemy.update();
+    // }
+    // );
+    for (i = enemies.length - 1; i >= 0 ; i--){
+        console.log(i);
+        enemies[i].update();
+        if (enemies[i].x < - spriteWidth){
+            enemies.splice(i,1);
         }
-    )
+    }
     player.update();
 }
 
@@ -64,8 +71,8 @@ function draw(){
     // Player and Ennemies Draw
     enemies.forEach(enemy => {
         enemy.draw();
-        }
-    )
+    });
+
     player.draw();
 
 }
