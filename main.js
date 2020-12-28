@@ -41,10 +41,7 @@ function update(){
     // GUI Update
 
     // Player and Ennemies Update
-    // enemies.forEach(enemy => {
-    //     enemy.update();
-    // }
-    // );
+
     for (i = enemies.length - 1; i >= 0 ; i--){
         console.log(i);
         enemies[i].update();
