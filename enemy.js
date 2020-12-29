@@ -37,9 +37,16 @@ class Enemy {
 }
 
 function enemieSpaw(){
+<<<<<<< HEAD
     if(frames % 200 === 0){
     enemies.push(enemy = new Enemy(spriteHeight * 1.5, spriteHeight * 4));
     enemies.push(enemy = new Enemy(spriteHeight * 4, spriteHeight * 6.5));
     enemies.push(enemy = new Enemy(spriteHeight * 6.5 , spriteHeight * 9));
+=======
+    if(frames % 150 === 0){
+    enemies.push(enemy = new Enemy(4,spriteHeight * 1.5, spriteHeight * 4));
+    enemies.push(enemy = new Enemy(2,spriteHeight * 4, spriteHeight * 6.5));
+    enemies.push(enemy = new Enemy(0,spriteHeight * 6.5 , spriteHeight * 9));
+>>>>>>> 5170c064345fe8e6bfc80d4f53b1944ad42a67ec
     }
 }
