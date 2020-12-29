@@ -6,8 +6,8 @@ const spriteHeight = 64;
 let enemies = [];
 
 class Enemy {
-    constructor(enemyFrame = 0, minY, maxY ){
-        this.enemyFrame = enemyFrame;
+    constructor(minY, maxY ){
+        this.enemyFrame = getRandomInt(0, 5);
         this.x = canvas.width;
         this.y = getRandomInt(minY, maxY, 0);
         console.log(this.y);
@@ -37,9 +37,9 @@ class Enemy {
 }
 
 function enemieSpaw(){
-    if(frames % 150 === 0){
-    enemies.push(enemy = new Enemy(1,spriteHeight * 1.5, spriteHeight * 4));
-    enemies.push(enemy = new Enemy(2,spriteHeight * 4, spriteHeight * 6.5));
-    enemies.push(enemy = new Enemy(3,spriteHeight * 6.5 , spriteHeight * 9));
+    if(frames % 200 === 0){
+    enemies.push(enemy = new Enemy(spriteHeight * 1.5, spriteHeight * 4));
+    enemies.push(enemy = new Enemy(spriteHeight * 4, spriteHeight * 6.5));
+    enemies.push(enemy = new Enemy(spriteHeight * 6.5 , spriteHeight * 9));
     }
 }
