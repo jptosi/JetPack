@@ -1,6 +1,5 @@
 // Init Variables
 let frames = 0;
-let keyBoost = false;
 let playerChoice = 1;
 let backgroundChoice = 3;
 const state = {

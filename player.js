@@ -3,6 +3,7 @@ const playerImg = new Image();
 playerImg.src = './assets/spritesPlayer.png'
 const spriteSize = 64;
 const smokeFrame = 4;
+let keyBoost = false;
 
 class Player {
     constructor(playerFrame = 0, px = 75, py = canvas.height/2){
@@ -12,6 +13,7 @@ class Player {
         this.gravity = 1;
         this.isJetOn = false;
         this.frameImg = 0;
+        this.isHit = false;
     }
 
     update(){
@@ -23,6 +25,10 @@ class Player {
         } else {
             this.isJetOn = false;
             this.y += this.gravity;
+        }
+
+        if(this.isHit === true){
+            this.isHit = false;
         }
 
         // calculate image frame - animation player

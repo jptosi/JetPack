@@ -14,6 +14,8 @@ class Enemy {
         this.speedx = Math.random() + 1;
         this.frameImg = 0;
         this.onScreen = true;
+        this.isCollisional = true;
+        this.isHit = false;
     }
 
     update(){
@@ -22,7 +24,9 @@ class Enemy {
         if (this.x < -spriteWidth){
             this.onScreen = false;
         }
-        this.checkColission();
+        if(this.isCollisional === true){
+            this.checkColission();
+        }
 
         // calculate image frame - animation enemy
         if(frames % 10 === 0){
@@ -43,7 +47,9 @@ class Enemy {
             this.y < player.y + 6 + 51 &&
             spriteHeight + this.y > player.y + 6
             ) {
-                this.onScreen = false;
+                console.log("hit");
+                player.isHit = true;
+                this.isCollisional = false;
             }
     }
 }
