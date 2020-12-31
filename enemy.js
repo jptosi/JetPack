@@ -22,6 +22,8 @@ class Enemy {
         if (this.x < -spriteWidth){
             this.onScreen = false;
         }
+        this.checkColission();
+
         // calculate image frame - animation enemy
         if(frames % 10 === 0){
             this.frameImg += spriteWidth;
@@ -33,6 +35,16 @@ class Enemy {
 
     draw(){
         ctx.drawImage(enemyImg, this.frameImg, this.enemyFrame * spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
+    }
+
+    checkColission(){
+        if(this.x < player.x + 64 &&
+            this.x + 100 > player.x &&
+            this.y < player.y + 6 + 51 &&
+            spriteHeight + this.y > player.y + 6
+            ) {
+                this.onScreen = false;
+            }
     }
 }
 
