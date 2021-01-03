@@ -10,7 +10,6 @@ class Enemy {
         this.enemyFrame = getRandomInt(0, 5);
         this.x = canvas.width;
         this.y = getRandomInt(minY, maxY, 0);
-        console.log(this.y);
         this.speedx = Math.random() + 1;
         this.frameImg = 0;
         this.onScreen = true;
@@ -47,7 +46,6 @@ class Enemy {
             this.y < player.y + 6 + 51 &&
             spriteHeight + this.y > player.y + 6
             ) {
-                console.log("hit");
                 player.isHit = true;
                 this.isCollisional = false;
             }

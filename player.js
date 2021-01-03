@@ -14,6 +14,7 @@ class Player {
         this.isJetOn = false;
         this.frameImg = 0;
         this.isHit = false;
+        this.imun = 0;
     }
 
     update(){
@@ -28,7 +29,12 @@ class Player {
         }
 
         if(this.isHit === true){
-            this.isHit = false;
+            this.imun = this.imun + 1;
+            if (this.imun >= 100){
+                this.isHit = false;
+                this.imun = 0;
+            }
+            console.log ("imun" + this.imun)
         }
 
         // calculate image frame - animation player
@@ -43,7 +49,11 @@ class Player {
 
     draw(){
         // player
+        if (this.isHit){
+            ctx.globalAlpha = 0.2;
+        }
         ctx.drawImage(playerImg, this.frameImg, this.playerFrame * spriteSize, spriteSize, spriteSize, this.x, this.y, spriteSize, spriteSize);
+        ctx.globalAlpha = 1.0;
 
         // smoke
         if(this.isJetOn){

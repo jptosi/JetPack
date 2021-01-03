@@ -54,10 +54,24 @@ class Background {
     max : exclude
     operator : 0 max exclude - 1  max include
 **/
-
 function getRandomInt(min, max, operator = 0) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + operator)) + min;
 }
 
+/** random float
+    min : include
+    max : exclude
+    operator : 0 max exclude - 1  max include
+**/
+function getRandom(min, max, operator = 0) {
+    return Math.random() * (max - min + operator) + min;
+}
+
+/** random array
+    array : array
+**/
+function getRandomArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
