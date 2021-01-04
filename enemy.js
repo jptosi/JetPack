@@ -47,6 +47,7 @@ class Enemy {
             spriteHeight + this.y > player.y + 6
             ) {
                 player.isHit = true;
+                player.lives = player.lives - 1;
                 this.isCollisional = false;
             }
     }

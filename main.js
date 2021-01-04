@@ -3,10 +3,10 @@ let frames = 0;
 let playerChoice = 1;
 let backgroundChoice = 3;
 const state = {
-    current: 0,
-    Load : 0,
-    game: 1,
-    over:2
+    menu: 0,
+    running : 1,
+    pause: 1,
+    gameover:2
 }
 
 // init Canvas
@@ -60,7 +60,7 @@ function draw(){
     });
 
     // GUI Draw
-    ctx.strokeText('Press "UP" key to active jetpack', 300, 20);
+    ctx.strokeText('Press "UP" key to active jetpack - lives ' + player.lives, 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw

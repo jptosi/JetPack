@@ -15,6 +15,7 @@ class Player {
         this.frameImg = 0;
         this.isHit = false;
         this.imun = 0;
+        this.lives = 3;
     }
 
     update(){
@@ -49,11 +50,15 @@ class Player {
 
     draw(){
         // player
-        if (this.isHit){
-            ctx.globalAlpha = 0.2;
+        if (this.lives >= 1){
+            if (this.isHit){
+                ctx.globalAlpha = 0.2;
+            }
+            ctx.drawImage(playerImg, this.frameImg, this.playerFrame * spriteSize, spriteSize, spriteSize, this.x, this.y, spriteSize, spriteSize);
+            ctx.globalAlpha = 1.0;
+        } else {
+            let gamestate = "gameover";
         }
-        ctx.drawImage(playerImg, this.frameImg, this.playerFrame * spriteSize, spriteSize, spriteSize, this.x, this.y, spriteSize, spriteSize);
-        ctx.globalAlpha = 1.0;
 
         // smoke
         if(this.isJetOn){
