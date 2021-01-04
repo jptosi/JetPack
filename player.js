@@ -54,15 +54,15 @@ class Player {
             if (this.isHit){
                 ctx.globalAlpha = 0.2;
             }
+            // player
             ctx.drawImage(playerImg, this.frameImg, this.playerFrame * spriteSize, spriteSize, spriteSize, this.x, this.y, spriteSize, spriteSize);
+            // smoke
+            if(this.isJetOn){
+                ctx.drawImage(playerImg, this.frameImg, smokeFrame * spriteSize, spriteSize, spriteSize, this.x - 8 , this.y + 56, spriteSize / 2, spriteSize / 2);
+            }
             ctx.globalAlpha = 1.0;
         } else {
             let gamestate = "gameover";
-        }
-
-        // smoke
-        if(this.isJetOn){
-            ctx.drawImage(playerImg, this.frameImg, smokeFrame * spriteSize, spriteSize, spriteSize, this.x - 8 , this.y + 56, spriteSize / 2, spriteSize / 2);
         }
     }
 }

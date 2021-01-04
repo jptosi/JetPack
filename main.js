@@ -15,7 +15,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = 960;
 canvas.height = 640;
 ctx.font = "20pt Calibri,Geneva,Arial";
-ctx.strokeStyle = "rgb(0,0,0)";
+ctx.strokeStyle = "rgb(255,255,0)";
 ctx.fillStyle = "rgb(0,20,180)";
 
 // init keyboard control
@@ -60,6 +60,9 @@ function draw(){
     });
 
     // GUI Draw
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, 64);
+    ctx.fillStyle = 'white';
     ctx.strokeText('Press "UP" key to active jetpack - lives ' + player.lives, 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
 
