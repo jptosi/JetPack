@@ -5,6 +5,10 @@ function keyDown(event) {
     if (event.keyCode == 38) {
         keyBoost = true;
     }
+    if (event.keyCode == 32) {
+        fire = true;
+        console.log("Fire ............");
+    }
 }
 
 function keyUp(event) {

@@ -35,7 +35,6 @@ class Player {
                 this.isHit = false;
                 this.imun = 0;
             }
-            console.log ("imun" + this.imun)
         }
 
         // calculate image frame - animation player

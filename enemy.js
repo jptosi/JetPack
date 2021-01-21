@@ -23,7 +23,7 @@ class Enemy {
         if (this.x < -spriteWidth){
             this.onScreen = false;
         }
-        if(this.isCollisional === true){
+        if(this.isCollisional === true && player.lives > 0){
             this.checkColission();
         }
 
@@ -38,11 +38,12 @@ class Enemy {
 
     draw(){
         ctx.drawImage(enemyImg, this.frameImg, this.enemyFrame * spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
+        ctx.strokeRect(this.x, this.y, spriteWidth, spriteHeight);
     }
 
     checkColission(){
-        if(this.x < player.x + 64 &&
-            this.x + 100 > player.x &&
+        if(this.x < player.x + spriteHeight &&
+            this.x + spriteHeight > player.x &&
             this.y < player.y + 6 + 51 &&
             spriteHeight + this.y > player.y + 6
             ) {
