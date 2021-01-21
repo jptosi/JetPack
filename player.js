@@ -2,6 +2,7 @@
 const playerImg = new Image();
 playerImg.src = './assets/spritesPlayer.png'
 const spriteSize = 64;
+const boundingbox = 15;
 const smokeFrame = 4;
 let keyBoost = false;
 
@@ -55,6 +56,9 @@ class Player {
             }
             // player
             ctx.drawImage(playerImg, this.frameImg, this.playerFrame * spriteSize, spriteSize, spriteSize, this.x, this.y, spriteSize, spriteSize);
+            //ctx.strokeRect(this.x + boundingbox, this.y + boundingbox, spriteSize - 2 * boundingbox, spriteSize - 2 * boundingbox);
+            //ctx.strokeRect(this.x + spriteSize, this.y + 30 , 10, 10);
+            
             // smoke
             if(this.isJetOn){
                 ctx.drawImage(playerImg, this.frameImg, smokeFrame * spriteSize, spriteSize, spriteSize, this.x - 8 , this.y + 56, spriteSize / 2, spriteSize / 2);

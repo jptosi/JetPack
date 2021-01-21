@@ -38,14 +38,14 @@ class Enemy {
 
     draw(){
         ctx.drawImage(enemyImg, this.frameImg, this.enemyFrame * spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
-        ctx.strokeRect(this.x, this.y, spriteWidth, spriteHeight);
+        //ctx.strokeRect(this.x, this.y, spriteHeight, spriteHeight);
     }
 
     checkColission(){
-        if(this.x < player.x + spriteHeight &&
-            this.x + spriteHeight > player.x &&
-            this.y < player.y + 6 + 51 &&
-            spriteHeight + this.y > player.y + 6
+        if(this.x < player.x + spriteSize - boundingbox &&
+            this.x + spriteHeight > player.x + boundingbox &&
+            this.y < player.y + spriteSize - boundingbox &&
+            spriteHeight + this.y > player.y + boundingbox
             ) {
                 player.isHit = true;
                 player.lives = player.lives - 1;
