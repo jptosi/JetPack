@@ -24,7 +24,7 @@ class Enemy {
             this.onScreen = false;
         }
         if(this.isCollisional === true && player.lives > 0){
-            this.checkColission();
+            this.checkColision();
         }
 
         // calculate image frame - animation enemy
@@ -41,7 +41,8 @@ class Enemy {
         //ctx.strokeRect(this.x, this.y, spriteHeight, spriteHeight);
     }
 
-    checkColission(){
+    checkColision(){
+        // Player Collision
         if(this.x < player.x + spriteSize - boundingbox &&
             this.x + spriteHeight > player.x + boundingbox &&
             this.y < player.y + spriteSize - boundingbox &&
@@ -51,6 +52,7 @@ class Enemy {
                 player.lives = player.lives - 1;
                 this.isCollisional = false;
             }
+        // Bullet collision
     }
 }
 
