@@ -15,6 +15,7 @@ class Enemy {
         this.onScreen = true;
         this.isCollisional = true;
         this.isHit = false;
+        this.hp = 3;
     }
 
     update(){
@@ -38,7 +39,6 @@ class Enemy {
 
     draw(){
         ctx.drawImage(enemyImg, this.frameImg, this.enemyFrame * spriteHeight, spriteWidth, spriteHeight, this.x, this.y, spriteWidth, spriteHeight);
-        //ctx.strokeRect(this.x, this.y, spriteHeight, spriteHeight);
     }
 
     checkColision(){
@@ -53,6 +53,16 @@ class Enemy {
                 this.isCollisional = false;
             }
         // Bullet collision
+        bullets.forEach(bullet => {
+            if(this.x < bullet.x + bulletWidth &&
+                this.x + spriteHeight > bullet.x &&
+                this.y < bullet.y + bulletHeight &&
+                spriteHeight + this.y >   bullet.y
+                ) {
+                    bullet.isHit = true;
+                    this.isHit = true;
+                }
+        });
     }
 }
 

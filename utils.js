@@ -7,7 +7,7 @@ function keyDown(event) {
     }
     if (event.keyCode == 32) {
         fire = true;
-        console.log("Fire ............");
+        bulletSpaw();
     }
 }
 

@@ -39,14 +39,24 @@ function update(){
 
     // GUI Update
 
-    // Player and Ennemies Update
+    // Ennemies Update
     for (i = enemies.length - 1; i >= 0 ; i--){
         enemies[i].update();
         // remove enemies out of screen
-        if (enemies[i].onScreen === false){
+        if (enemies[i].onScreen === false || enemies[i].isHit === true){
             enemies.splice(i,1);
         }
     }
+    // Bullet update
+    for (i = 0 ; i <= bullets.length -1; i++) {
+        if(bullets[i].isHit === true || bullets[i].explose === true){
+            bullets.splice(i,1);
+        } else {
+            bullets[i].update();
+        }
+    };
+
+    // Player update
     player.update();
 }
 
@@ -67,9 +77,14 @@ function draw(){
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
+    bullets.forEach(bullet => {
+        bullet.draw();
+    });
+
     enemies.forEach(enemy => {
         enemy.draw();
     });
+
 
     player.draw();
 
