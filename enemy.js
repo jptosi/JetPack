@@ -15,6 +15,8 @@ class Enemy {
         this.onScreen = true;
         this.isCollisional = true;
         this.isHit = false;
+        this.explose = false;
+        this.delete = false;
         this.hp = 3;
     }
 
@@ -27,6 +29,12 @@ class Enemy {
         if(this.isCollisional === true && player.lives > 0){
             this.checkColision();
         }
+
+        if (this.isHit === true && this.explose === false){
+            this.explose = true;
+        } else if (this.explose === true){
+            this.delete = true;
+    }
 
         // calculate image frame - animation enemy
         if(frames % 10 === 0){

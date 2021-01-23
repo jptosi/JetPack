@@ -43,13 +43,13 @@ function update(){
     for (i = enemies.length - 1; i >= 0 ; i--){
         enemies[i].update();
         // remove enemies out of screen
-        if (enemies[i].onScreen === false || enemies[i].isHit === true){
+        if (enemies[i].onScreen === false || enemies[i].delete === true){
             enemies.splice(i,1);
         }
     }
     // Bullet update
     for (i = 0 ; i <= bullets.length -1; i++) {
-        if(bullets[i].isHit === true || bullets[i].explose === true){
+        if(bullets[i].isHit === true || bullets[i].delete === true){
             bullets.splice(i,1);
         } else {
             bullets[i].update();

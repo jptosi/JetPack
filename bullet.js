@@ -18,13 +18,16 @@ class Bullet {
         this.bulletTravelMax = getRandomInt(350,450);
         console.log(this.bulletTravelMax);
         this.explose = false;
+        this.delete = false;
     };
 
     update(){
         if (this.x <= this.bulletTravelMax) {
             this.x += speedBullet;
-        } else {
+        } else if (this.explose === false){
             this.explose = true;
+        } else if (this.explose === true){
+            this.delete = true;
         }
     }
 
