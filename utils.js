@@ -53,6 +53,19 @@ class Background {
 
 }
 
+/** Explosion class
+    type : type of explosion : bullet - ennemy - player
+    posX , posY : explosion position
+**/
+class explosion {
+    constructor(type, posX, posY){
+        this.type = type;
+        this.x = posX;
+        this.y = posY;
+    }
+}
+
+
 /** random int
     min : include
     max : exclude

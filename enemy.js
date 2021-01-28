@@ -3,13 +3,16 @@ const enemyImg = new Image();
 enemyImg.src = './assets/spritesEnemy.png'
 const spriteWidth = 120;
 const spriteHeight = 64;
+const firstRow = 64;
+const secondRow = 256;
+const thirdRow = 448;
 let enemies = [];
 
 class Enemy {
-    constructor(minY, maxY ){
+    constructor(row){
         this.enemyFrame = getRandomInt(0, 5);
         this.x = canvas.width;
-        this.y = getRandomInt(minY, maxY, 0);
+        this.y = row + getRandomInt(0, 2, 1) * spriteHeight;
         this.speedx = Math.random() + 1;
         this.frameImg = 0;
         this.onScreen = true;
@@ -76,8 +79,8 @@ class Enemy {
 
 function enemieSpaw(){
     if(frames % 200 === 0){
-    enemies.push(enemy = new Enemy(spriteHeight * 1.5, spriteHeight * 4));
-    enemies.push(enemy = new Enemy(spriteHeight * 4, spriteHeight * 6.5));
-    enemies.push(enemy = new Enemy(spriteHeight * 6.5 , spriteHeight * 9));
+    enemies.push(enemy = new Enemy(firstRow));
+    enemies.push(enemy = new Enemy(secondRow));
+    enemies.push(enemy = new Enemy(thirdRow));
     }
 }
