@@ -57,6 +57,8 @@ class Background {
     type : type of explosion : bullet - ennemy - player
     posX , posY : explosion position
 **/
+let explosions = [];
+
 class explosion {
     constructor(type, posX, posY){
         this.type = type;
