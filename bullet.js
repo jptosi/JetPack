@@ -27,7 +27,7 @@ class Bullet {
         } else if (this.explose === false){
             this.explose = true;
         } else if (this.explose === true){
-            explosions.push(new explosion("bullet", this.x + bulletWidth, this.y + bulletHeight / 2));
+            explosions.push(new explosion(bulletImg, this.x + bulletWidth, this.y + bulletHeight / 2));
             console.log(explosions);
             this.delete = true;
         }

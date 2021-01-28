@@ -54,16 +54,35 @@ class Background {
 }
 
 /** Explosion class
-    type : type of explosion : bullet - ennemy - player
+    imgExplose : image of explosion : bullet - ennemy - player
     posX , posY : explosion position
 **/
+const spriteExplosionSize = 40;
 let explosions = [];
 
 class explosion {
-    constructor(type, posX, posY){
-        this.type = type;
-        this.x = posX;
-        this.y = posY;
+    constructor(imgExplose, posX, posY){
+        this.imgExplose = imgExplose;
+        this.x = posX - spriteExplosionSize / 2;
+        this.y = posY - spriteExplosionSize / 2;
+        this.frameCounter = 0;
+        this.frameIndex = 0;
+        this.delete = false;
+    }
+
+    update(){
+        this.frameCounter = this.frameCounter + 1;
+        console.log(this.frameCounter);
+        if(this.frameCounter % 4 === 0){
+            this.frameIndex += spriteExplosionSize;
+            if(this.frameIndex > spriteExplosionSize * 7){
+                this.delete = true;
+            }
+        }
+    }
+
+    draw(){
+        ctx.drawImage(this.imgExplose, this.frameIndex, 0, spriteExplosionSize, spriteExplosionSize, this.x, this.y, spriteExplosionSize, spriteExplosionSize);
     }
 }
 

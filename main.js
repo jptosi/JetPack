@@ -56,6 +56,14 @@ function update(){
         }
     };
 
+    for (i = 0 ; i <= explosions.length -1; i++) {
+        if(explosions[i].delete === true){
+            explosions.splice(i,1);
+        } else {
+            explosions[i].update();
+        }
+    };
+
     // Player update
     player.update();
 }
@@ -79,6 +87,10 @@ function draw(){
     // Player and Ennemies Draw
     bullets.forEach(bullet => {
         bullet.draw();
+    });
+
+    explosions.forEach(explosion => {
+        explosion.draw();
     });
 
     enemies.forEach(enemy => {
