@@ -11,7 +11,7 @@ class Player {
         this.playerFrame = playerFrame;
         this.x = px;
         this.y = py;
-        this.gravity = 1;
+        this.gravity = 2;
         this.isJetOn = false;
         this.frameImg = 0;
         this.isHit = false;

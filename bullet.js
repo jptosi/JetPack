@@ -4,6 +4,7 @@ bulletImg.src = './assets/bullets.png'
 const bulletPixelX = 320;
 const bulletWidth = 60;
 const bulletHeight = 10;
+const spriteExploseSize = 40;
 xGunPosition = 18;
 yGunPosition = 30;
 let bullets = [];
@@ -27,8 +28,7 @@ class Bullet {
         } else if (this.explose === false){
             this.explose = true;
         } else if (this.explose === true){
-            explosions.push(new explosion(bulletImg, this.x + bulletWidth, this.y + bulletHeight / 2));
-            console.log(explosions);
+            explosions.push(new explosion(bulletImg, spriteExploseSize, this.x + bulletWidth, this.y + bulletHeight / 2));
             this.delete = true;
         }
     }

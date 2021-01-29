@@ -48,7 +48,7 @@ function update(){
         }
     }
     // Bullet update
-    for (i = 0 ; i <= bullets.length -1; i++) {
+    for (i = bullets.length - 1 ; i >= 0; i--) {
         if(bullets[i].isHit === true || bullets[i].delete === true){
             bullets.splice(i,1);
         } else {
@@ -56,7 +56,7 @@ function update(){
         }
     };
 
-    for (i = 0 ; i <= explosions.length -1; i++) {
+    for (i = explosions.length -1 ; i >= 0 ; i--) {
         if(explosions[i].delete === true){
             explosions.splice(i,1);
         } else {
@@ -81,7 +81,7 @@ function draw(){
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, 64);
     ctx.fillStyle = 'white';
-    ctx.strokeText('Press "UP" key to active jetpack - lives ' + player.lives, 300, 20);
+    ctx.strokeText('Press "UP" key to active jetpack - "space" to shoot. lives ' + player.lives, 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
